@@ -1,0 +1,22 @@
+from msgraph.core import GraphClient
+
+# Your access token
+access_token = "YOUR_ACCESS_TOKEN_HERE"
+
+# Creating a GraphClient instance
+graph_client = GraphClient(access_token)
+
+# Endpoint URL
+endpoint = "/users"
+
+# Making the GET request
+response = graph_client.get(endpoint)
+
+# Checking the response status code
+if response.status_code == 200:
+    # Request was successful
+    data = response.json()
+    print(data)
+else:
+    # Request failed
+    print("Error:", response.status_code, response.text)
